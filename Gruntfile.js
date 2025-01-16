@@ -1,6 +1,21 @@
 module.exports = function(grunt){
     grunt.initConfig({
-        pkg: grunt.file.readJSON('Package.json'),
+        pkg: grunt.file.readJSON('package.json'),
+        less: {
+            development: {
+                files: {
+                    "main.css": "main.less"
+                }
+            },
+            production: {
+                options: {
+                    compress: true
+                },
+                files:{
+                    'main.min.css': 'main.less'
+                }
+            }
+        }
     });
 
     grunt.registerTask('helloGrunt', function(){
@@ -11,7 +26,8 @@ module.exports = function(grunt){
         }, 3000)
        
     })
-
-    grunt.registerTask('default', ['helloGrunt']);
+    
+    grunt.loadNpmTasks('grunt-contrib-less');
+    // grunt.registerTask('default', ['helloGrunt']);
 }
 
