@@ -26,6 +26,9 @@ module.exports = function(grunt){
                     'main_sass.css': 'main.scss'
                 }
             }
+        },
+        concurrent:{
+            target: ['helloGrunt','less:development', 'less:production', 'sass:dist']
         }
     });
 
@@ -40,6 +43,7 @@ module.exports = function(grunt){
     
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.registerTask('default', ['helloGrunt', 'less:development' , 'less:production', 'sass:dist']);
+    grunt.loadNpmTasks('grunt-concurrent');
+    grunt.registerTask('default', ['concurrent']);
 }
 
