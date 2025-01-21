@@ -2,6 +2,8 @@
 @fonteDoTitulo: Lobster, cursive;
 @corDoTexto: #fff;
 @corDeFundo: #eb3b5a;
+@corDoTextodoBotao: #000;
+@corDeFundoDoBotao: #f7b731;
 
 body{
     background-color: @corDeFundo;
@@ -15,4 +17,35 @@ h1{
 
 h3{
     font-family: @fonteDoTitulo;
+}
+
+main{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 2em;
+    text-align: center;
+}
+
+button{
+    padding: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 16px;
+    border-radius: 8px;
+    font-size: 1.3em;
+    background-color: @corDeFundoDoBotao;
+    color: @corDoTextodoBotao;
+    font-family: @fontePrincipal;
+}
+
+input{
+    display: block;
+    margin: 16px auto 0;
+    font-size: 2em;
+    max-width: 120px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    border-bottom: 6px solid #fff;
 }
