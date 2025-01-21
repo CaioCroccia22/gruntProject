@@ -4,7 +4,7 @@ module.exports = function(grunt){
         less: {
             development: {
                 files: {
-                    "main.css": "main.less"
+                    "dev/styles/main.css": "src/style/main.less"
                 }
             },
             //Arquivo minificado CSS para a produção
@@ -13,37 +13,15 @@ module.exports = function(grunt){
                     compress: true
                 },
                 files:{
-                    'main.min.css': 'main.less'
+                    'dist/styles/main.min.css': 'src/style/main.less'
                 }
             }
         },
-        sass:{
-            dist:{
-                options: {
-                    style: 'compressed'
-                },
-                files:{
-                    'main_sass.css': 'main.scss'
-                }
-            }
-        },
-        concurrent:{
-            target: ['helloGrunt','less:development', 'less:production', 'sass:dist']
-        }
     });
 
-    grunt.registerTask('helloGrunt', function(){
-        const done = this.async();
-        setTimeout(function(){
-            console.log('Hello Grunt! with timeout');
-            done();
-        }, 3000)
-       
-    })
-    
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-concurrent');
-    grunt.registerTask('default', ['concurrent']);
+
+    grunt.registerTask('default', ['less:development']);
+    grunt.registerTask('build', ['less:production']);
 }
 
