@@ -26,6 +26,11 @@ module.exports = function(grunt){
             less: {
                 files: ['src/style/**/*.less'],
                 tasks: ['less:development']
+            },
+            // Monitora as alterações no arquivo html
+            html: {
+                files: ['src/index.html'],
+                tasks: ['replace:dev']
             }
         },
         // Substitui o endereço do CSS no arquivo HTML
@@ -92,6 +97,10 @@ module.exports = function(grunt){
                     'prebuild/index.html' : 'dev/index.html'
                 }
             }
+        },
+        clean: {
+            // Limpar a pasta prebuild
+            src: ['prebuild']
         }
     });
 
@@ -99,8 +108,9 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist']);
+    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'clean']);
 }
 
