@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ept-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="@@ENDERECO_DO_CSS">
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
     <main>
         <h1>Sorteador</h1>
-        <form>
+        <form id="form-sorteador">
             <div>
                 <label for="numero-maximo"></label>
-                <input type="number" id="numero-maximo" name="numero-maximo">
+                <input type="number" id="numero-maximo" required min="2" value="2" step="1" name="numero-maximo">
             </div>
             <button type="submit">Sortear numero</button>
         </form>
     </main>
+    <div class="resultado">
+        O número sorteado foi: <span id="resultado-valor"></span>
+    </div>
+    <script src="../src/script/main.js"></script>
 </body>
 </html>

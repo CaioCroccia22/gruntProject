@@ -44,7 +44,13 @@ module.exports = function(grunt){
                             match: 'ENDERECO_DO_CSS',
                             // O arquivo que será substituido
                             replacement: './styles/main.css'
-                       }
+                       },
+                       {
+                        // Nomenclatura que irá no href do link
+                        match: 'ENDERECO_DO_JS',
+                        // O arquivo que será substituido
+                        replacement: '../src/script/main.js'
+                   }
                     ]
                 },
                 files: [
@@ -54,7 +60,7 @@ module.exports = function(grunt){
                         // O local do arquivo
                         src: ['src/index.html'],
                         // O local de destino
-                        dest: 'dist/'
+                        dest: 'dev/'
                     }
                 ]
             },
@@ -111,6 +117,6 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'clean']);
+    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'replace:dev' , 'clean']);
 }
 
