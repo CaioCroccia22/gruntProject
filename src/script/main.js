@@ -9,5 +9,6 @@ document.addEventListener('DOMContentLoaded', function(){
         numeroAletorio = Math.floor(numeroAletorio + 1);
 
         document.getElementById('resultado-valor').innerText = numeroAletorio;
+        document.querySelector('.resultado').style.display = 'block';
     })
 })

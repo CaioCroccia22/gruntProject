@@ -72,7 +72,13 @@ module.exports = function(grunt){
                             match: 'ENDERECO_DO_CSS',
                             // O arquivo que será substituido
                             replacement: './styles/main.min.css'
-                       }
+                       },
+                       {
+                        // Nomenclatura que irá no href do link
+                        match: 'ENDERECO_DO_JS',
+                        // O arquivo que será substituido
+                        replacement: '../src/script/main.min.js'
+                   }
                     ]
                 },
                 files: [
@@ -107,6 +113,14 @@ module.exports = function(grunt){
         clean: {
             // Limpar a pasta prebuild
             src: ['prebuild']
+        },
+        //Gerando o arquivo javascript minificado
+        uglify: {
+            target: {
+                files: {
+                    'dist/script/main.min.js': 'src/script/main.js'
+                }
+            }
         }
     });
 
@@ -115,8 +129,9 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'replace:dev' , 'clean']);
+    grunt.registerTask('build', ['less:production', 'htmlmin:dist', 'replace:dist', 'replace:dev' , 'clean', 'uglify']);
 }
 
