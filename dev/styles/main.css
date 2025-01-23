@@ -46,4 +46,5 @@ input {
   font-weight: bold;
   font-size: 3em;
   display: block;
+  border: none;
 }

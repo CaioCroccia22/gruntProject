@@ -25,7 +25,7 @@ module.exports = function(grunt){
         watch:{
             less: {
                 files: ['src/style/**/*.less'],
-                tasks: ['less:development']
+                tasks: ['less:production']
             },
             // Monitora as alterações no arquivo html
             html: {
@@ -77,7 +77,7 @@ module.exports = function(grunt){
                         // Nomenclatura que irá no href do link
                         match: 'ENDERECO_DO_JS',
                         // O arquivo que será substituido
-                        replacement: '../src/script/main.min.js'
+                        replacement: '../dist/script/main.min.js'
                    }
                     ]
                 },
@@ -106,7 +106,7 @@ module.exports = function(grunt){
                 files: {
                     // Fazer a minificação 
                     //Destino : origem
-                    'prebuild/index.html' : 'dev/index.html'
+                    'prebuild/index.html' : 'src/index.html'
                 }
             }
         },
